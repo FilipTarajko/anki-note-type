@@ -1,9 +1,16 @@
+:root {
+  --bg1: hsl(180, 30%, 40%);
+  --bg2: hsl(250, 25%, 35%);
+  --fg1: hsl(215, 70%, 45%, 0.7);
+  --fg2: hsl(210, 70%, 45%, 0.7)
+}
+
 .card {
   font-family: arial;
   font-size: 5.2vmin;
   text-align: center;
   color: black;
-  background-image: linear-gradient(to bottom right, hsl(180, 30%, 40%), hsl(250, 25%, 35%));
+  background-image: linear-gradient(to bottom right, var(--bg1), var(--bg2));
   margin-bottom: 0px;
   overflow: hidden;
 }
@@ -17,7 +24,7 @@ hr {
 }
 
 #frontbox {
-  background: hsl(215, 70%, 45%, 0.7);
+  background: var(--fg1);
   color: white;
   font-weight: bold;
   margin: 0px 3vmin 0px 3vmin;
@@ -27,7 +34,7 @@ hr {
 }
 
 #header {
-  background: hsl(210, 70%, 45%, 0.7);
+  background: var(--fg2);
   color: white;
   margin: 0px 6vmin 0px 6vmin;
   border-radius: 4vmin 4vmin 0px 0px;
@@ -35,7 +42,7 @@ hr {
 }
 
 #backbox {
-  background: hsl(210, 70%, 45%, 0.7);
+  background: var(--fg2);
   color: white;
   margin: 0px 6vmin 0px 6vmin;
   border-radius: 0 0 4vmin 4vmin;
@@ -50,7 +57,7 @@ hr {
 #main img {
   margin-top: 3vmin;
   max-height: 50vh;
-	min-width: 70%;
+  min-width: 70%;
 }
 
 a {
@@ -104,7 +111,7 @@ button {
 
 #info img {
   max-height: 60vh;
-	max-width: 85%;
+  max-width: 85%;
   margin: 0.5vmin;
 }
 
@@ -262,6 +269,13 @@ button {
 
 #iso3166 .upAndDown {
   background: rgba(0, 255, 0, 0.2);
+}
+
+#geo {
+  --bg1: hsl(120, 25%, 45%);
+  --bg2: hsl(180, 20%, 40%);
+  --fg1: rgba(0, 255, 0, 0.3);
+  --fg2: rgba(0, 255, 0, 0.2);
 }
 
 /* nato */
