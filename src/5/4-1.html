@@ -1,0 +1,46 @@
+<div id="Theme" style="display: none;">{{Theme}}</div>
+<div id="isReversed" style="display: none;"></div>
+<div id="all" style="height: calc(100vh); overflow: hidden;">
+<div id="nonIframe">
+<div id="main">
+{{#Header}}
+	<div id='header' class="upAndDown">
+		{{Header}}
+	</div>
+{{/Header}}
+
+	<div id='frontbox'>
+		<span style="visibility:hidden;">{{1}}</span>
+		<hr>
+		<span style="visibility:hidden;">{{2}}</span>
+		<hr>
+		<span style="visibility:hidden;">{{3}}</span>
+		<hr>
+		<span>{{4}}</span>
+		<hr>
+		<span style="visibility:hidden;">{{5}}</span>
+	</div>
+  
+
+  </div>
+    {{#Info}}
+  <div id="info">
+
+  </div>
+  {{/Info}}
+  
+  {{#Source}}
+  <div id="source">
+
+  </div>
+  {{/Source}}
+  
+	<div id="buttons" style="visibility: hidden;">
+	</div>
+
+</div>
+<iframe id="iframe" style="visibility: hidden; height: 100vh; width: 100%;">
+</div>
+</iframe>
+
+<div id="bgImage" style="height: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"><img src="_BG_{{Theme}}.jpg"></div>

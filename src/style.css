@@ -1,0 +1,711 @@
+.card {
+  font-family: arial;
+  font-size: 5.2vmin;
+  text-align: center;
+  color: black;
+  background-image: linear-gradient(to bottom right, hsl(180, 30%, 40%), hsl(250, 25%, 35%));
+  margin-bottom: 0px;
+  overflow: hidden;
+}
+
+hr {
+  margin: 2px;
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+  color: white;
+}
+
+#frontbox {
+  background: hsl(215, 70%, 45%, 0.7);
+  color: white;
+  font-weight: bold;
+  margin: 0px 3vmin 0px 3vmin;
+  border-radius: 3vmin;
+  padding: 2.5vmin;
+  font-size: 120%;
+}
+
+#header {
+  background: hsl(210, 70%, 45%, 0.7);
+  color: white;
+  margin: 0px 6vmin 0px 6vmin;
+  border-radius: 4vmin 4vmin 0px 0px;
+  padding: 3vmin;
+}
+
+#backbox {
+  background: hsl(210, 70%, 45%, 0.7);
+  color: white;
+  margin: 0px 6vmin 0px 6vmin;
+  border-radius: 0 0 4vmin 4vmin;
+  padding: 3vmin;
+}
+
+#buttons {
+  margin-top: -1vmin;
+  margin-bottom: 1vmin;
+}
+
+#main img {
+  margin-top: 3vmin;
+  max-height: 50vh;
+	min-width: 70%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  all: unset;
+}
+
+button a {
+  color: black;
+}
+
+button {
+  all: unset;
+  border-radius: 1vmin;
+  border: 1px solid black;
+  padding: 0.5vmin;
+  font-size: 3vmin !important;
+  margin: 0px 0.2vmin;
+}
+
+.mobile button {
+  font-size: 12px !important;
+}
+
+#browser,
+#resize {
+  background-color: #9db7ff;
+  padding: 0.5vmin 1.5vmin;
+}
+
+#info {
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 1vh;
+  font-size: 90%;
+}
+
+#source {
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+  font-size: 60%;
+  margin-top: 2vh;
+}
+
+#header img {
+  max-height: 12vmin;
+}
+
+#info img {
+  max-height: 60vh;
+	max-width: 85%;
+  margin: 0.5vmin;
+}
+
+#bgImage img {
+  box-shadow: 16 35 8px 32px white inset;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.06;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.win #bgImage img {
+  transform: scale(1.1, 1.1);
+}
+
+/* swift */
+
+#swift {
+  background-image: linear-gradient(to bottom right, hsl(54, 45%, 55%), hsl(14, 40%, 55%));
+}
+
+#swift #frontbox {
+  background: hsl(25, 90%, 55%, 0.8);
+}
+
+#swift .upAndDown {
+  background: hsl(30, 90%, 55%, 0.8);
+}
+
+/* php */
+
+#php {
+  background-image: linear-gradient(to bottom right, hsl(230, 20%, 45%), hsl(250, 20%, 45%));
+}
+
+#php #frontbox {
+  background: hsl(250, 60%, 45%, 0.6);
+}
+
+#php .upAndDown {
+  background: hsl(260, 60%, 45%, 0.6);
+}
+
+/* nl */
+
+#nl {
+  background-image: linear-gradient(to bottom right, hsl(50, 35%, 45%), hsl(10, 30%, 40%));
+}
+
+#nl #frontbox {
+  background: hsl(34, 100%, 50%, 0.6);
+}
+
+#nl .upAndDown {
+  background: hsl(34, 100%, 45%, 0.6);
+}
+
+/* provincies */
+
+#provincies img {
+  width: 32vmin;
+  max-height: 50vmin;
+}
+
+#provincies {
+  background-image: linear-gradient(to bottom right, hsl(50, 35%, 45%), hsl(10, 30%, 40%));
+}
+
+#provincies hr {
+  margin-bottom: 10px;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%;
+}
+
+#provincies #frontbox {
+  background: hsl(34, 100%, 50%, 0.6);
+}
+
+#provincies .upAndDown {
+  background: hsl(34, 100%, 45%, 0.6);
+}
+
+/* blender */
+
+#blender {
+  background-image: linear-gradient(to bottom right, hsl(50, 35%, 45%), hsl(10, 30%, 40%));
+}
+
+#blender #frontbox {
+  background: hsl(34, 100%, 50%, 0.6);
+}
+
+#blender .upAndDown {
+  background: hsl(34, 100%, 45%, 0.6);
+}
+
+/* astrophysics */
+
+#astrophysics {
+  background-image: linear-gradient(to bottom right, hsl(170, 55%, 45%), hsl(250, 50%, 40%));
+}
+
+#astrophysics #frontbox {
+  background: hsl(224, 90%, 40%, 0.55);
+}
+
+#astrophysics .upAndDown {
+  background: hsl(224, 80%, 45%, 0.55);
+}
+
+/* werkwoord */
+
+#werkwoord {
+  background-image: linear-gradient(to bottom right, hsl(170, 55%, 45%), hsl(250, 50%, 40%));
+}
+
+#werkwoord #frontbox {
+  background: hsl(224, 90%, 40%, 0.55);
+}
+
+#werkwoord .upAndDown {
+  background: hsl(224, 80%, 45%, 0.55);
+}
+
+/* anki */
+
+#anki {
+  background-image: linear-gradient(to bottom right, hsl(205, 15%, 55%), hsl(205, 15%, 55%));
+}
+
+#anki #frontbox {
+  background: hsl(205, 50%, 45%);
+}
+
+#anki .upAndDown {
+  background: hsl(205, 50%, 50%);
+}
+
+/* iso3166 */
+
+#iso3166 {
+  background-image: linear-gradient(to bottom right, hsl(120, 25%, 45%), hsl(180, 20%, 40%));
+}
+
+#iso3166 #frontbox {
+  background: rgba(0, 255, 0, 0.3);
+}
+
+#iso3166 .upAndDown {
+  background: rgba(0, 255, 0, 0.2);
+}
+
+/* nato */
+
+#nato {
+  background-image: linear-gradient(to bottom right, hsl(210, 45%, 35%), hsl(250, 40%, 30%));
+}
+
+#nato #frontbox {
+  background: hsl(244, 90%, 40%, 0.55);
+}
+
+#nato .upAndDown {
+  background: hsl(234, 70%, 35%, 0.55);
+}
+
+/* de */
+
+#de {
+  background-image: linear-gradient(to bottom right, hsl(50, 35%, 45%), hsl(10, 30%, 40%));
+}
+
+#de #frontbox {
+  background: hsl(34, 100%, 50%, 0.6);
+}
+
+#de .upAndDown {
+  background: hsl(34, 100%, 45%, 0.6);
+}
+
+/* de FRONTONLY */
+
+#de .originalFrontVisible #frontbox {
+  background: hsl(125, 50%, 50%, 0.8);
+}
+
+#de .originalFrontVisible #backbox {
+  background: hsl(125, 50%, 45%, 0.8);
+}
+
+/* rde */
+
+#rde {
+  background-image: linear-gradient(to bottom right, hsl(50, 35%, 45%), hsl(10, 30%, 40%));
+}
+
+#rde #frontbox {
+  background: hsl(34, 100%, 50%, 0.6);
+}
+
+#rde .upAndDown {
+  background: hsl(34, 100%, 45%, 0.6);
+}
+
+/* rde BACKONLY */
+
+#rde .originalBackVisible #frontbox {
+  background: hsl(125, 50%, 50%, 0.8);
+}
+
+#rde .originalBackVisible #backbox {
+  background: hsl(125, 50%, 45%, 0.8);
+}
+
+/* het */
+
+#het {
+  background-image: linear-gradient(to bottom right, hsl(50, 35%, 45%), hsl(10, 30%, 40%));
+}
+
+#het #frontbox {
+  background: hsl(34, 100%, 50%, 0.6);
+}
+
+#het .upAndDown {
+  background: hsl(34, 100%, 45%, 0.6);
+}
+
+/* het FRONTONLY */
+
+#het .originalFrontVisible #frontbox {
+  background: hsl(205, 50%, 50%, 0.8);
+}
+
+#het .originalFrontVisible #backbox {
+  background: hsl(205, 50%, 45%, 0.8);
+}
+
+/* rhet */
+
+#rhet {
+  background-image: linear-gradient(to bottom right, hsl(50, 35%, 45%), hsl(10, 30%, 40%));
+}
+
+#rhet #frontbox {
+  background: hsl(34, 100%, 50%, 0.6);
+}
+
+#rhet .upAndDown {
+  background: hsl(34, 100%, 45%, 0.6);
+}
+
+/* rhet BACKONLY */
+
+#rhet .originalBackVisible #frontbox {
+  background: hsl(205, 50%, 50%, 0.8);
+}
+
+#rhet .originalBackVisible #backbox {
+  background: hsl(205, 50%, 45%, 0.8);
+}
+
+/* elixir */
+
+#elixir {
+  background-image: linear-gradient(to bottom right, hsl(290, 35%, 45%), hsl(240, 30%, 40%));
+}
+
+#elixir #frontbox {
+  background: hsl(260, 100%, 50%, 0.6);
+}
+
+#elixir .upAndDown {
+  background: hsl(260, 100%, 45%, 0.6);
+}
+
+/* sass */
+
+#sass {
+  background-image: linear-gradient(to bottom right, hsl(320, 35%, 45%), hsl(270, 30%, 40%));
+}
+
+#sass #frontbox {
+  background: hsl(290, 100%, 50%, 0.6);
+}
+
+#sass .upAndDown {
+  background: hsl(290, 100%, 45%, 0.6);
+}
+
+/* js */
+
+#js {
+  background-image: linear-gradient(to bottom right, hsl(55, 35%, 45%), hsl(65, 30%, 40%));
+}
+
+#js #frontbox {
+  background: hsl(60, 100%, 50%, 0.6);
+}
+
+#js .upAndDown {
+  background: hsl(60, 100%, 45%, 0.6);
+}
+
+/* python, android */
+
+#python, #android {
+  background-image: linear-gradient(to bottom right, hsl(120, 25%, 45%), hsl(180, 20%, 40%));
+}
+
+#python #frontbox, #android #frontbox {
+  background: rgba(0, 235, 0, 0.4);
+}
+
+#python .upAndDown, #android .upAndDown {
+  background: rgba(0, 205, 0, 0.4);
+}
+
+/* cs */
+
+#cs {
+  background-image: linear-gradient(to bottom right, hsl(210, 25%, 40%), hsl(230, 20%, 35%));
+}
+
+#cs #frontbox {
+  background: hsl(224, 100%, 50%, 0.6);
+}
+
+#cs .upAndDown {
+  background: hsl(214, 100%, 45%, 0.6);
+}
+
+/* ai */
+
+#ai {
+  background-image: linear-gradient(to bottom right, hsl(70, 35%, 40%), hsl(230, 40%, 45%));
+}
+
+#ai #frontbox {
+  background: hsl(124, 100%, 40%, 0.6);
+}
+
+#ai .upAndDown {
+  background: hsl(114, 100%, 35%, 0.6);
+}
+
+/* pollub */
+
+#pollub {
+  background-image: linear-gradient(to bottom right, hsl(55, 25%, 45%), hsl(65, 20%, 40%));
+}
+
+#pollub #frontbox {
+  background: hsl(60, 100%, 50%, 0.6);
+}
+
+#pollub .upAndDown {
+  background: hsl(60, 100%, 45%, 0.6);
+}
+
+/* distributed */
+
+#distributed {
+  background-image: linear-gradient(to bottom right, hsl(180, 35%, 40%), hsl(220, 30%, 35%));
+}
+
+#distributed #frontbox {
+  background: hsl(200, 100%, 45%, 0.6);
+}
+
+#distributed .upAndDown {
+  background: hsl(195, 100%, 45%, 0.6);
+}
+
+/* embedded */
+
+#embedded {
+  background-image: linear-gradient(to bottom right, hsl(190, 35%, 40%), hsl(230, 30%, 35%));
+}
+
+#embedded #frontbox {
+  background: hsl(220, 100%, 45%, 0.5);
+}
+
+#embedded .upAndDown {
+  background: hsl(210, 100%, 40%, 0.5);
+}
+
+/* cpp */
+
+#cpp {
+  background-image: linear-gradient(to bottom right, hsl(200, 35%, 45%), hsl(230, 40%, 45%));
+}
+
+#cpp #frontbox {
+  background: hsl(220, 100%, 45%, 0.6);
+}
+
+#cpp .upAndDown {
+  background: hsl(210, 100%, 40%, 0.6);
+}
+
+/* se */
+
+#se {
+  background-image: linear-gradient(to bottom right, hsl(200, 25%, 50%), hsl(230, 40%, 45%));
+}
+
+#se #frontbox {
+  background: hsl(220, 70%, 45%, 0.7);
+}
+
+#se .upAndDown {
+  background: hsl(215, 70%, 45%, 0.7);
+}
+
+/* keyboard */
+
+#keyboard {
+  background-image: linear-gradient(to bottom right, hsl(200, 35%, 35%), hsl(240, 30%, 30%));
+}
+
+#keyboard #frontbox {
+  background: hsl(220, 100%, 40%, 0.6);
+}
+
+#keyboard .upAndDown {
+  background: hsl(215, 100%, 40%, 0.6);
+}
+
+/* epistemology */
+
+#epistemology {
+  background-image: linear-gradient(to bottom right, hsl(180, 25%, 45%), hsl(220, 20%, 40%));
+}
+
+#epistemology #frontbox {
+  background: hsl(200, 80%, 40%, 0.6);
+}
+
+#epistemology .upAndDown {
+  background: hsl(195, 80%, 40%, 0.6);
+}
+
+/* photography */
+
+#photography {
+  background-image: linear-gradient(to bottom right, hsl(200, 35%, 35%), hsl(240, 30%, 30%));
+}
+
+#photography #frontbox {
+  background: hsl(220, 100%, 40%, 0.6);
+}
+
+#photography .upAndDown {
+  background: hsl(215, 100%, 40%, 0.6);
+}
+
+/* health */
+
+#health {
+  background-image: linear-gradient(to bottom right, hsl(100, 50%, 35%), hsl(140, 50%, 30%));
+}
+
+#health #frontbox {
+  background: hsl(120, 90%, 40%, 0.6);
+}
+
+#health .upAndDown {
+  background: hsl(105, 80%, 40%, 0.6);
+}
+
+/* vue*/
+
+#vue, #nuxt {
+  background-image: linear-gradient(to bottom right, hsl(100, 20%, 40%), hsl(140, 20%, 35%));
+}
+
+#vue #frontbox, #nuxt #frontbox {
+  background: hsl(120, 70%, 30%, 0.6);
+}
+
+#vue .upAndDown, #nuxt .upAndDown {
+  background: hsl(105, 60%, 30%, 0.6);
+}
+
+/* regex */
+
+#regex {
+  background-image: linear-gradient(to bottom right, hsl(200, 35%, 35%), hsl(240, 30%, 30%));
+}
+
+#regex #frontbox {
+  background: hsl(220, 100%, 40%, 0.6);
+}
+
+#regex .upAndDown {
+  background: hsl(215, 100%, 40%, 0.6);
+}
+
+/* en */
+
+#en {
+  background-image: linear-gradient(to bottom right, hsl(200, 35%, 35%), hsl(240, 30%, 30%));
+}
+
+#en #frontbox {
+  background: hsl(220, 100%, 40%, 0.6);
+}
+
+#en .upAndDown {
+  background: hsl(215, 100%, 40%, 0.6);
+}
+
+/* paintnet */
+
+#paintnet {
+  background-image: linear-gradient(to bottom right, hsl(180, 35%, 40%), hsl(220, 30%, 35%));
+}
+
+#paintnet #frontbox {
+  background: hsl(200, 100%, 45%, 0.6);
+}
+
+#paintnet .upAndDown {
+  background: hsl(195, 100%, 45%, 0.6);
+}
+
+/* history */
+
+#history {
+  background-image: linear-gradient(to bottom right, hsl(60, 25%, 40%), hsl(80, 20%, 30%));
+}
+
+#history #frontbox {
+  background: hsl(55, 100%, 40%, 0.6);
+}
+
+#history .upAndDown {
+  background: hsl(55, 100%, 35%, 0.6);
+}
+
+/* economy */
+
+#economy {
+  background-image: linear-gradient(to bottom right, hsl(180, 35%, 40%), hsl(220, 30%, 35%));
+}
+
+#economy #frontbox {
+  background: hsl(200, 100%, 45%, 0.6);
+}
+
+#economy .upAndDown {
+  background: hsl(195, 100%, 45%, 0.6);
+}
+
+/* phx */
+
+#phx {
+  background-image: linear-gradient(to bottom right, hsl(35, 35%, 45%), hsl(5, 30%, 40%));
+}
+
+#phx #frontbox {
+  background: hsl(20, 100%, 50%, 0.6);
+}
+
+#phx .upAndDown {
+  background: hsl(20, 100%, 45%, 0.6);
+}
+
+/* phx */
+
+#phx {
+  background-image: linear-gradient(to bottom right, hsl(35, 35%, 45%), hsl(5, 30%, 40%));
+}
+
+#phx #frontbox {
+  background: hsl(20, 100%, 50%, 0.6);
+}
+
+#phx .upAndDown {
+  background: hsl(20, 100%, 45%, 0.6);
+}
+
+/* hs */
+
+#hs {
+  background-image: linear-gradient(to bottom right, hsl(35, 35%, 45%), hsl(5, 30%, 40%));
+}
+
+#hs #frontbox {
+  background: hsl(20, 100%, 50%, 0.6);
+}
+
+#hs .upAndDown {
+  background: hsl(20, 100%, 45%, 0.6);
+}

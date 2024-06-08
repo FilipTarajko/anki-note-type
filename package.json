@@ -1,0 +1,10 @@
+{
+  "name": "anki-note-type",
+  "version": "0.23.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "description": ""
+}

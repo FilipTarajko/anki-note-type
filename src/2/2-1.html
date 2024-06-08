@@ -1,0 +1,43 @@
+{{#Add Reverse}}
+<div id="Theme" style="display: none;">{{Theme}}</div>
+<div id="isReversed" style="display: none;">true</div>
+<div id="all" style="height: calc(100vh - 20px); overflow: hidden;">
+<div id="nonIframe">
+<div id="main" class="originalBackVisible">
+{{#Header}}
+	<div id='header' class="upAndDown">
+		{{Header}}
+	</div>
+{{/Header}}
+	<div id='frontbox'>
+		{{Back}}
+	</div>
+  
+  
+    
+
+
+</div>
+    {{#Info}}
+  <div id="info">
+
+  </div>
+  {{/Info}}
+  
+  {{#Source}}
+  <div id="source">
+
+  </div>
+  {{/Source}}
+
+	<div id="buttons" style="visibility: hidden;">
+	</div>
+
+</div>
+<iframe id="iframe" style="visibility: hidden; height: 100vh; width: 100%;">
+</div>
+</iframe>
+
+<div id="bgImage" style="height: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"><img src="_BG_{{Theme}}.jpg"></div>
+
+{{/Add Reverse}}
