@@ -6,6 +6,8 @@ const outputDirectory = './dist/';
 const styleFile = inputDirectory+"style.css";
 const scriptFile = inputDirectory+"script.js";
 
+const mediaDirectory = "/home/ft/.local/share/Anki2/User 1/collection.media"
+
 let noteTypeCount = 0;
 let cardTypeCountDoubled = 0;
 
@@ -32,5 +34,10 @@ for (let i=0; i<fileOrDirectory.length; i++) {
     fs.writeFileSync(outputDirectory+fileOrDirectory[i]+"/"+files[j], content);
   }
 }
+
+const mediaFiles = fs.readdirSync(mediaDirectory);
+const backgroundImageFiles = mediaFiles.filter(e=>e.includes("_BG_"));
+console.log(`Found ${mediaFiles.length} media files`);
+console.log(`Found ${backgroundImageFiles.length} theme background files`);
 
 console.log(`Generated ${noteTypeCount} note types, ${cardTypeCountDoubled/2} card types`);
