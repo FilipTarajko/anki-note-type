@@ -40,4 +40,7 @@ const backgroundImageFiles = mediaFiles.filter(e=>e.includes("_BG_"));
 console.log(`Found ${mediaFiles.length} media files`);
 console.log(`Found ${backgroundImageFiles.length} theme background files`);
 
+const styleFileContent = fs.readFileSync(styleFile);
+console.log(`Style file length: ${styleFileContent.toString().split('').filter(e=>e=="\n").length+1} lines`);
+
 console.log(`Generated ${noteTypeCount} note types, ${cardTypeCountDoubled/2} card types`);
