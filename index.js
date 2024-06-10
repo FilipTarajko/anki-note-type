@@ -3,7 +3,8 @@ const fs = require('node:fs');
 const inputDirectory = "./src/";
 const outputDirectory = './dist/';
 
-const styleFile = inputDirectory+"style.css";
+const commonStylesFile = inputDirectory+"commonStyles.css";
+const themeStylesFile = inputDirectory+"themeStyles.css";
 const scriptFile = inputDirectory+"script.js";
 
 const mediaDirectory = "/home/ft/.local/share/Anki2/User 1/collection.media"
@@ -16,7 +17,6 @@ if (!fs.existsSync(outputDirectory)) {
 }
 
 const fileOrDirectory = fs.readdirSync(inputDirectory);
-fs.copyFileSync(styleFile, outputDirectory+"styling.css");
 const script = fs.readFileSync(scriptFile);
 for (let i=0; i<fileOrDirectory.length; i++) {
   if (fileOrDirectory[i].includes(".")) {
@@ -40,7 +40,16 @@ const backgroundImageFiles = mediaFiles.filter(e=>e.includes("_BG_"));
 console.log(`Found ${mediaFiles.length} media files`);
 console.log(`Found ${backgroundImageFiles.length} theme background files`);
 
-const styleFileContent = fs.readFileSync(styleFile);
-console.log(`Style file length: ${styleFileContent.toString().split('').filter(e=>e=="\n").length+1} lines`);
+const commonStylesFileContent = fs.readFileSync(commonStylesFile);
+const themeStylesFileContent = fs.readFileSync(themeStylesFile);
+const styleFileContent = commonStylesFileContent+"\n/* === themes below ===*/\n"+themeStylesFileContent;
+fs.writeFileSync(outputDirectory+"styling.css", styleFileContent);
+
+const commonStylesFileLinesCount = commonStylesFileContent.toString().split('').filter(e=>e=="\n").length+1
+const themeStylesFileLinesCount = themeStylesFileContent.toString().split('').filter(e=>e=="\n").length+1
+const resultingStylesFileLinesCount = styleFileContent.toString().split('').filter(e=>e=="\n").length+1
+console.log(`Common styles file length: ${commonStylesFileLinesCount} lines`);
+console.log(`Theme styles file length: ${themeStylesFileLinesCount} lines`);
+console.log(`Resulting style file length: ${resultingStylesFileLinesCount} lines`);
 
 console.log(`Generated ${noteTypeCount} note types, ${cardTypeCountDoubled/2} card types`);
