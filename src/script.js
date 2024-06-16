@@ -68,10 +68,10 @@
         buttonsDiv.style.right = "0px";
         iframe.style.top = "6vmin";
         iframe.style.bottom = "0px";
-        iframe.style.left = "1vw";
+        iframe.style.left = "0.4vw";
         iframe.style.right = "1vw";
         iframe.style.position = "absolute";
-        iframe.style.width = `${vw100 * 0.98}px`; //`calc (96vw)`; //${vw100-10}px
+        iframe.style.width = `98vw`;
         iframe.style.height = `${vh100 - Math.min(vw100, vh100) * 0.08}px`; //`calc (100vh - 8vmin)`; //${vh100-40}px
       }
       fullscreen = !fullscreen;
