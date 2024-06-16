@@ -12,6 +12,8 @@ const mediaDirectory = "/home/ft/.local/share/Anki2/User 1/collection.media"
 let noteTypeCount = 0;
 let cardTypeCountDoubled = 0;
 
+const generationTimestamp = new Date().toISOString();
+
 if (!fs.existsSync(outputDirectory)) {
   fs.mkdirSync(outputDirectory);
 }
@@ -29,7 +31,7 @@ for (let i=0; i<fileOrDirectory.length; i++) {
   }
   for (let j=0; j<files.length; j++) {
     cardTypeCountDoubled++;
-    let content = (fs.readFileSync(inputDirectory+fileOrDirectory[i]+"/"+files[j]));
+    let content = "<!-- "+generationTimestamp+" -->\n"+(fs.readFileSync(inputDirectory+fileOrDirectory[i]+"/"+files[j]));
     content += "\n\n"+script;
     fs.writeFileSync(outputDirectory+fileOrDirectory[i]+"/"+files[j], content);
   }
@@ -42,7 +44,7 @@ console.log(`Found ${backgroundImageFiles.length} theme background files`);
 
 const commonStylesFileContent = fs.readFileSync(commonStylesFile);
 const themeStylesFileContent = fs.readFileSync(themeStylesFile);
-const styleFileContent = commonStylesFileContent+"\n/* === themes below ===*/\n"+themeStylesFileContent;
+const styleFileContent = "/*   "+generationTimestamp+" */\n\n"+commonStylesFileContent+"\n/* === themes below ===*/\n"+themeStylesFileContent;
 fs.writeFileSync(outputDirectory+"styling.css", styleFileContent);
 
 const commonStylesFileLinesCount = commonStylesFileContent.toString().split('').filter(e=>e=="\n").length+1
