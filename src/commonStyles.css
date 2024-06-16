@@ -115,20 +115,22 @@ button {
   margin: 0.5vmin;
 }
 
-#bgImage img {
+#bgImage {
   box-shadow: 16 35 8px 32px white inset;
   position: absolute;
-  left: 0px;
   top: 0px;
   right: 0px;
   bottom: 0px;
+  left: 0px;
   width: 100vw;
   height: 100vh;
   opacity: 0.06;
   z-index: -1;
   object-fit: cover;
+  /* is this needed? */
+  pointer-events: none;
 }
 
-.win #bgImage img {
+.linux #bgImage, .win #bgImage {
   transform: scale(1.1, 1.1);
 }
