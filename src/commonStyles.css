@@ -131,6 +131,6 @@ button {
   pointer-events: none;
 }
 
-.linux #bgImage, .win #bgImage {
+.linux:not(.android) #bgImage, .win #bgImage {
   transform: scale(1.1, 1.1);
 }
