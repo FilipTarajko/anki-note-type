@@ -44,7 +44,7 @@ console.log(`Found ${backgroundImageFiles.length} theme background files`);
 
 const commonStylesFileContent = fs.readFileSync(commonStylesFile);
 const themeStylesFileContent = fs.readFileSync(themeStylesFile);
-const styleFileContent = "/*   "+generationTimestamp+" */\n\n"+commonStylesFileContent+"\n/* === themes below ===*/\n"+themeStylesFileContent;
+const styleFileContent = "/*   "+generationTimestamp+" */\n\n"+commonStylesFileContent+"\n/* === themes below ===*/\n"+themeStylesFileContent+"/* THIS IS NOT SUPPOSED TO BE EDITED */";
 fs.writeFileSync(outputDirectory+"styling.css", styleFileContent);
 
 const commonStylesFileLinesCount = commonStylesFileContent.toString().split('').filter(e=>e=="\n").length+1
