@@ -108,6 +108,7 @@ button {
 
 #header img {
   max-height: 12rem;
+  object-fit: contain;
 }
 
 #info img {
