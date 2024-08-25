@@ -132,6 +132,12 @@ button {
   pointer-events: none;
 }
 
+#all {
+	max-width: 100rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .linux:not(.android) #bgImage, .win #bgImage {
   transform: scale(1.1, 1.1);
 }
