@@ -2,12 +2,13 @@
   --bg1: hsl(180, 30%, 40%);
   --bg2: hsl(250, 25%, 35%);
   --fg1: hsl(215, 70%, 45%, 0.7);
-  --fg2: hsl(210, 70%, 45%, 0.7)
+  --fg2: hsl(210, 70%, 45%, 0.7);
+  font-size: min(1vmin, 5px);
 }
 
 .card {
   font-family: arial;
-  font-size: 5.2vmin;
+  font-size: 5.2rem;
   text-align: center;
   color: black;
   background-image: linear-gradient(to bottom right, var(--bg1), var(--bg2));
@@ -27,35 +28,35 @@ hr {
   background: var(--fg1);
   color: white;
   font-weight: bold;
-  margin: 0px 3vmin 0px 3vmin;
-  border-radius: 3vmin;
-  padding: 2.5vmin;
+  margin: 0px 3rem 0px 3rem;
+  border-radius: 3rem;
+  padding: 2.5rem;
   font-size: 120%;
 }
 
 #header {
   background: var(--fg2);
   color: white;
-  margin: 0px 6vmin 0px 6vmin;
-  border-radius: 4vmin 4vmin 0px 0px;
-  padding: 3vmin;
+  margin: 0px 6rem 0px 6rem;
+  border-radius: 4rem 4rem 0px 0px;
+  padding: 3rem;
 }
 
 #backbox {
   background: var(--fg2);
   color: white;
-  margin: 0px 6vmin 0px 6vmin;
-  border-radius: 0 0 4vmin 4vmin;
-  padding: 3vmin;
+  margin: 0px 6rem 0px 6rem;
+  border-radius: 0 0 4rem 4rem;
+  padding: 3rem;
 }
 
 #buttons {
-  margin-top: -1vmin;
-  margin-bottom: 1vmin;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
 }
 
 #main img {
-  margin-top: 3vmin;
+  margin-top: 3rem;
   max-height: 50vh;
   min-width: 70%;
 }
@@ -75,11 +76,11 @@ button a {
 
 button {
   all: unset;
-  border-radius: 1vmin;
+  border-radius: 1rem;
   border: 1px solid black;
-  padding: 0.5vmin;
-  font-size: 3vmin !important;
-  margin: 0px 0.2vmin;
+  padding: 0.5rem;
+  font-size: 3rem !important;
+  margin: 0px 0.2rem;
 }
 
 .mobile button {
@@ -89,7 +90,7 @@ button {
 #browser,
 #resize {
   background-color: #9db7ff;
-  padding: 0.5vmin 1.5vmin;
+  padding: 0.5rem 1.5rem;
 }
 
 #info {
@@ -106,13 +107,13 @@ button {
 }
 
 #header img {
-  max-height: 12vmin;
+  max-height: 12rem;
 }
 
 #info img {
   max-height: 60vh;
   max-width: 85%;
-  margin: 0.5vmin;
+  margin: 0.5rem;
 }
 
 #bgImage {
