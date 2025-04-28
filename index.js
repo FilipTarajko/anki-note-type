@@ -37,10 +37,14 @@ for (let i=0; i<fileOrDirectory.length; i++) {
   }
 }
 
-const mediaFiles = fs.readdirSync(mediaDirectory);
-const backgroundImageFiles = mediaFiles.filter(e=>e.includes("_BG_"));
-console.log(`Found ${mediaFiles.length} media files`);
-console.log(`Found ${backgroundImageFiles.length} theme background files`);
+if (fs.existsSync(mediaDirectory)) {
+  const mediaFiles = fs.readdirSync(mediaDirectory);
+  const backgroundImageFiles = mediaFiles.filter(e=>e.includes("_BG_"));
+  console.log(`Found ${mediaFiles.length} media files`);
+  console.log(`Found ${backgroundImageFiles.length} theme background files`);
+} else {
+  console.log(`Media directory not found`);
+}
 
 const commonStylesFileContent = fs.readFileSync(commonStylesFile);
 const themeStylesFileContent = fs.readFileSync(themeStylesFile);
