@@ -19,7 +19,7 @@ if (!fs.existsSync(outputDirectory)) {
 }
 
 const fileOrDirectory = fs.readdirSync(inputDirectory);
-const script = fs.readFileSync(scriptFile);
+const scriptContent = fs.readFileSync(scriptFile);
 for (let i=0; i<fileOrDirectory.length; i++) {
   if (fileOrDirectory[i].includes(".")) {
     continue;
@@ -32,7 +32,7 @@ for (let i=0; i<fileOrDirectory.length; i++) {
   for (let j=0; j<files.length; j++) {
     cardTypeCountDoubled++;
     let content = "<!-- "+generationTimestamp+" -->\n"+(fs.readFileSync(inputDirectory+fileOrDirectory[i]+"/"+files[j]));
-    content += "\n\n"+script;
+    content += "\n\n<script>\n"+scriptContent+"\n</script>";
     fs.writeFileSync(outputDirectory+fileOrDirectory[i]+"/"+files[j], content);
   }
 }
