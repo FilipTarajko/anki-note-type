@@ -6,6 +6,7 @@ const outputDirectory = './dist/';
 const commonStylesFile = inputDirectory+"commonStyles.css";
 const themeStylesFile = inputDirectory+"themeStyles.css";
 const scriptFile = inputDirectory+"script.js";
+const helpersFile = inputDirectory+"helpers.js";
 
 const mediaDirectory = "/home/ft/.local/share/Anki2/User 1/collection.media"
 
@@ -20,6 +21,7 @@ if (!fs.existsSync(outputDirectory)) {
 
 const fileOrDirectory = fs.readdirSync(inputDirectory);
 const scriptContent = fs.readFileSync(scriptFile);
+const helpersContent = fs.readFileSync(helpersFile).toString().replaceAll('export ', '');
 for (let i=0; i<fileOrDirectory.length; i++) {
   if (fileOrDirectory[i].includes(".")) {
     continue;
@@ -32,7 +34,7 @@ for (let i=0; i<fileOrDirectory.length; i++) {
   for (let j=0; j<files.length; j++) {
     cardTypeCountDoubled++;
     let content = "<!-- "+generationTimestamp+" -->\n"+(fs.readFileSync(inputDirectory+fileOrDirectory[i]+"/"+files[j]));
-    content += "\n\n<script>\n"+scriptContent+"\n</script>";
+    content += "\n\n<script>\n"+helpersContent+"\n"+scriptContent+"\n</script>";
     fs.writeFileSync(outputDirectory+fileOrDirectory[i]+"/"+files[j], content);
   }
 }
