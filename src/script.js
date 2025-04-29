@@ -1,15 +1,20 @@
+/** todo: why is this in a block */
 {
+  /** config for which themes to enable word-to-iframe links  */
   const enablingThemes = ["de", "rde", "het", "rhet", "nl"];
+
+  /** config for which fields to replace into iframe links */
   const divsWithLinks = ["source"];
-
+  const divsToReplaceAll = ["frontbox", "backbox", "header", "info"];
   let divsToReplace = [];
-  let divsToReplaceAll = ["frontbox", "backbox", "header", "info"];
-
-  const vw100 = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-  const vh100 = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
   const iframe = document.getElementById("iframe");
   const buttonsDiv = document.getElementById("buttons");
+
+  /** stuff for styling */
+  const vw100 = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  const vh100 = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+  const defaultButtonsDivStyle = buttonsDiv.style;
 
   const themeName = document.getElementById("Theme").innerText;
 
@@ -25,6 +30,11 @@
 
   document.getElementsByClassName("card")[0].id = themeName;
 
+  /**
+   * configuration for iframe-websites-visiting buttons
+   *
+   * format: [buttonLabel, urlPartBeforeWord, urlPartAfterWord, buttonHue]
+   * */
   let buttons = [
     ["Wiktionary", "https://en.m.wiktionary.org/wiki/", "#Dutch", 155],
     ["Reverso", "https://context.reverso.net/translation/dutch-english/", "", 17],
@@ -52,12 +62,9 @@
 
   buttonsDiv.insertAdjacentHTML("beforeend", `<button id="resize">resize</button>`);
 
-  let defaultIframeStyle = iframe.style;
-  let defaultButtonsDivStyle = buttonsDiv.style;
-
+  /** make resize button resize iframe by overwriting its styling */
   document.getElementById("resize").addEventListener("click", () => {
     if (fullscreen) {
-      // iframe.style = defaultIframeStyle;
       iframe.style = "position: relative; width: 100%; height: 100vh;";
       buttonsDiv.style = defaultButtonsDivStyle;
       iframe.style.height = parseInt(vh100) - 40 - parseInt(document.getElementById("nonIframe").clientHeight) + "px";
@@ -85,9 +92,9 @@
     }
     let text = textElement.innerText;
 
+    /** todo: what is this? shouldn't it use replaceAll instead of a loop? */
     for (let i = 0; i < text.length; i++) {
       // TEST READY LINKS
-      // TODO: replace and not replaceAll?
       if (d < divsToReplace.length) {
         text = text.replace("/", " ");
       }
@@ -107,12 +114,11 @@
     }
     let words = textToWords(text);
 
-    //textElement.innerText = "";
-
+    /** wrap words into spans, so that event listeners can be added */
     let nextStart = 0;
-
     [textElement.innerHTML, nextStart] = textToSpans(textElement.innerHTML, words, d, nextStart);
 
+    /** add event listeners to word spans, so that iframe can be opened when a word is pressed */
     for (let i = 0; i < words.length; i++) {
       document.getElementById(`${d}-${i}`).addEventListener("click", () => {
         buttonsDiv.style.visibility = "visible";
