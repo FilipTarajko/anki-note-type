@@ -1,5 +1,15 @@
 import {expect, describe, it} from 'vitest';
-import {textToSpans} from './helpers';
+import {textToSpans, textToWords} from './helpers';
+
+describe('textToWords', () => {
+    it('transforms word into 1-elem array', () => {
+        expect(textToWords('test')).toStrictEqual(['test']);
+    })
+
+    it('transforms string with a few words into 1-elem array', () => {
+        expect(textToWords('test a abc')).toStrictEqual(['test', 'a', 'abc']);
+    })
+})
 
 describe('textToSpans', () => {
     it('transforms a word into a span', () => {

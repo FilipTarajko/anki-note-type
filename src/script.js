@@ -105,7 +105,7 @@
     if (text[text.length - 1] == " ") {
       text = text.slice(0, -1);
     }
-    let words = text.replace("\xa0", " ").split(" "); //.split('/');
+    let words = textToWords(text);
 
     //textElement.innerText = "";
 

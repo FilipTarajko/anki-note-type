@@ -39,3 +39,7 @@ export function textToSpans(text, words, d, nextStart) {
 
     return text;
 }
+
+export function textToWords(text) {
+    return text.replace("\xa0", " ").split(" "); //.split('/');
+}
