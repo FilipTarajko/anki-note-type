@@ -37,7 +37,7 @@ export function textToSpans(text, words, d, nextStart) {
         // );
     }
 
-    return text;
+    return [text, nextStart];
 }
 
 export function textToWords(text) {

@@ -111,7 +111,7 @@
 
     let nextStart = 0;
 
-    textElement.innerHTML = textToSpans(textElement.innerHTML, words, d, nextStart);
+    [textElement.innerHTML, nextStart] = textToSpans(textElement.innerHTML, words, d, nextStart);
 
     for (let i = 0; i < words.length; i++) {
       document.getElementById(`${d}-${i}`).addEventListener("click", () => {
