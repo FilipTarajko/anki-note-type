@@ -92,27 +92,7 @@
     }
     let text = textElement.innerText;
 
-    /** todo: what is this? shouldn't it use replaceAll instead of a loop? */
-    for (let i = 0; i < text.length; i++) {
-      // TEST READY LINKS
-      if (d < divsToReplace.length) {
-        text = text.replace("/", " ");
-      }
-      text = text.replace("(", " ");
-      text = text.replace(")", " ");
-      text = text.replace("<", " ");
-      text = text.replace("[", " ");
-      text = text.replace(">", " ");
-      text = text.replace("]", " ");
-      text = text.replace("\\", " ");
-      text = text.replace("\n", " ");
-      text = text.replace("  ", " ");
-      text = text.replace("  ", " ");
-    }
-    if (text[text.length - 1] == " ") {
-      text = text.slice(0, -1);
-    }
-    let words = textToWords(text);
+    let words = textToWords(text, divsWithLinks.includes(divsConcat[d]));
 
     /** wrap words into spans, so that event listeners can be added */
     let nextStart = 0;

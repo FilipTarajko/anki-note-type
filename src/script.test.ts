@@ -9,6 +9,17 @@ describe('textToWords', () => {
     it('transforms string with a few words into 1-elem array', () => {
         expect(textToWords('test a abc')).toStrictEqual(['test', 'a', 'abc']);
     })
+
+    it('works with several instances of ([<)]>/\\ and multiple spaces', ()=>{
+        expect(textToWords('test/a/b \\c\\e[a]')).toStrictEqual(['test', 'a', 'b', 'c', 'e', 'a']);
+    })
+
+    // TODO
+    // it('works with ,:;.\'"', ()=>{
+    //     expect(textToWords('test,a:e;g.b\'u"U')).toStrictEqual(['test', 'a', 'b', 'c', 'e', 'a']);
+    // })
+
+    // TODO: check if second argument preserves links
 })
 
 describe('textToSpans', () => {
