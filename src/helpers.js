@@ -42,10 +42,10 @@ export function textToSpans(text, words, d, nextStart) {
 
 export function textToWords(text, preservesLinks = false) {
     if (!preservesLinks) {
-        text = text.replaceAll("/", " ");
+        text = text.replaceAll(/[/:.?=&]/g, " ");
     }
 
-    text = text.replaceAll(/[)<\[>\]\\\n]/g, " ");
+    text = text.replaceAll(/[)<\[>\]\\\n,;'"]/g, " ");
     text = text.replaceAll(/\s+/g, " ");
     if (text[text.length - 1] === " ") {
         text = text.slice(0, -1);
