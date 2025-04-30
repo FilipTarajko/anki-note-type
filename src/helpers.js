@@ -41,16 +41,33 @@ export function textToSpans(text, words, divNumber, nextStart) {
 }
 
 export function textToWords(text, preservesLinks = false) {
-    // get rid of html opening/closing tags
+    // get rid of html tag openings/closings
     text = text.replaceAll(/<[^>]*>/g, " ")
 
     // remove some special chars unless links are to be preserved
     if (!preservesLinks) {
-        text = text.replaceAll(/[/:.?=&]/g, " ");
+        // regex solution caused issues on AnkiDroid, so multiple replaceAll calls are used instead
+        text = text.replaceAll("/", " ")
+            .replaceAll(":", " ")
+            .replaceAll(".", " ")
+            .replaceAll("?", " ")
+            .replaceAll("=", " ")
+            .replaceAll("&", " ");
     }
 
-    // remove some special chars
-    text = text.replaceAll(/[)<\[>\]\\\n,;'"]/g, " ")
+    // regex solution caused issues on AnkiDroid, so multiple replaceAll calls are used instead
+    text = text.replaceAll("(", " ")
+        .replaceAll(")", " ")
+        .replaceAll("<", " ")
+        .replaceAll("[", " ")
+        .replaceAll(">", " ")
+        .replaceAll("]", " ")
+        .replaceAll(",", " ")
+        .replaceAll(";", " ")
+        .replaceAll("'", " ")
+        .replaceAll('"', " ")
+        .replaceAll("\\", " ")
+        .replaceAll("\n", " ");
 
     // remove consecutive whitespace chars, replace all whitespace with spaces
     text = text.replaceAll(/\s+/g, " ");
