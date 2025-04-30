@@ -11,7 +11,11 @@ describe('textToWords', () => {
     })
 
     it('works with several instances of ([<)]>/\\ and multiple spaces and non-breaking spaces', () => {
-        expect(textToWords('test/a/b\xa0\xa0     \\c\\e[a] ')).toStrictEqual(['test', 'a', 'b', 'c', 'e', 'a']);
+        expect(textToWords('test/a/b\xa0\xa0     \\c\\e[a]c')).toStrictEqual(['test', 'a', 'b', 'c', 'e', 'a', 'c']);
+    })
+
+    it('handles whitespace present at first and last position', () => {
+        expect(textToWords(' a ')).toStrictEqual(['a']);
     })
 
     it('doesn\'t run terribly slowly', () => {

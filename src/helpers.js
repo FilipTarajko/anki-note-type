@@ -47,8 +47,14 @@ export function textToWords(text, preservesLinks = false) {
 
     text = text.replaceAll(/[)<\[>\]\\\n,;'"]/g, " ");
     text = text.replaceAll(/\s+/g, " ");
+
+    if (text[0] === " ") {
+        text = text.slice(1);
+    }
+
     if (text[text.length - 1] === " ") {
         text = text.slice(0, -1);
     }
+
     return text.split(" ");
 }
