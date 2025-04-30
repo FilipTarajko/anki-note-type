@@ -59,6 +59,10 @@ describe('textToWords', () => {
     it('handles <b> tags properly', () => {
         expect(textToWords('<b>test</b>')).toStrictEqual(['test']);
     })
+
+    it('handles <b> tags properly, even if inside a word', () => {
+        expect(textToWords('t<b>es</b>t')).toStrictEqual(['test']);
+    })
 })
 
 describe('textToSpans', () => {
@@ -83,4 +87,6 @@ describe('textToSpans', () => {
         expect(textToSpans('<b>test</b>', textToWords('<b>test</b>'), 0, 0))
             .toStrictEqual(expectedResult);
     })
+
+    // TODO: textToSpans doesn't support tags inside of words, eg tes<b>t</b> won't work
 })

@@ -42,7 +42,7 @@ export function textToSpans(text, words, divNumber, nextStart) {
 
 export function textToWords(text, preservesLinks = false) {
     // get rid of html tag openings/closings
-    text = text.replaceAll(/<[^>]*>/g, " ")
+    text = text.replaceAll(/<[^>]*>/g, "")
 
     // remove some special chars unless links are to be preserved
     if (!preservesLinks) {
