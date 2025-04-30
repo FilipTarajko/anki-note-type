@@ -10,16 +10,30 @@ describe('textToWords', () => {
         expect(textToWords('test a abc')).toStrictEqual(['test', 'a', 'abc']);
     })
 
-    it('works with several instances of ([<)]>/\\ and multiple spaces', ()=>{
-        expect(textToWords('test/a/b \\c\\e[a]')).toStrictEqual(['test', 'a', 'b', 'c', 'e', 'a']);
+    it('works with several instances of ([<)]>/\\ and multiple spaces and non-breaking spaces', ()=>{
+        expect(textToWords('test/a/b\xa0\xa0     \\c\\e[a] ')).toStrictEqual(['test', 'a', 'b', 'c', 'e', 'a']);
     })
+
+    it('it doesn\'t run terribly slowly', ()=>{
+        const startTime = Date.now();
+
+        for (let i=0; i<10000; i++) {
+            textToWords('test/a/b \\c\\e[a] test/a/b \\c\\e[a] test/a/b');
+        }
+
+        const endTime = Date.now();
+        const totalTime = endTime - startTime;
+
+        console.log(totalTime + 'ms')
+        expect((endTime - startTime) < 250).toBe(true);
+    })
+
+    // TODO: check if second argument preserves links
 
     // TODO
     // it('works with ,:;.\'"', ()=>{
     //     expect(textToWords('test,a:e;g.b\'u"U')).toStrictEqual(['test', 'a', 'b', 'c', 'e', 'a']);
     // })
-
-    // TODO: check if second argument preserves links
 })
 
 describe('textToSpans', () => {

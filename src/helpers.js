@@ -41,25 +41,14 @@ export function textToSpans(text, words, d, nextStart) {
 }
 
 export function textToWords(text, preservesLinks = false) {
-    /** todo: what is this? shouldn't it use replaceAll instead of a loop? */
-    for (let i = 0; i < text.length; i++) {
-        if (!preservesLinks) {
-            text = text.replace("/", " ");
-        }
-
-        text = text.replace("(", " ");
-        text = text.replace(")", " ");
-        text = text.replace("<", " ");
-        text = text.replace("[", " ");
-        text = text.replace(">", " ");
-        text = text.replace("]", " ");
-        text = text.replace("\\", " ");
-        text = text.replace("\n", " ");
-        text = text.replace("  ", " ");
-        text = text.replace("  ", " ");
+    if (!preservesLinks) {
+        text = text.replaceAll("/", " ");
     }
+
+    text = text.replaceAll(/[)<\[>\]\\\n]/g, " ");
+    text = text.replaceAll(/\s+/g, " ");
     if (text[text.length - 1] === " ") {
         text = text.slice(0, -1);
     }
-    return text.replace("\xa0", " ").split(" "); //.split('/');
+    return text.split(" ");
 }
