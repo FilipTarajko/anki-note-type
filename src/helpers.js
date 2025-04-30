@@ -1,7 +1,7 @@
-export function textToSpans(text, words, d, nextStart) {
+export function textToSpans(text, words, divNumber, nextStart) {
     for (let i = 0; i < words.length; i++) {
         let lookingFor = words[i].trim();
-        let replaceWith = `<span id='${d}-${i}'>${lookingFor}</span>`;
+        let replaceWith = `<span id='${divNumber}-${i}'>${lookingFor}</span>`;
         let position = 0;
         let otwarcia = 0;
         for (let j = nextStart; j < text.length - lookingFor.length + 1; j++) {
@@ -24,14 +24,14 @@ export function textToSpans(text, words, d, nextStart) {
 
         // textElement.innerHTML = textElement.innerHTML.replace(
         //   words[i].trim(),
-        //   `<span id='${d}-${i}'>` +
+        //   `<span id='${divNumber}-${i}'>` +
         //     words[i].trim() +
         //     `${i < words.length - 1 ? " " : ""}</span>`
         // );
 
         // textElement.insertAdjacentHTML(
         //   "beforeend",
-        //   `<span id='${d}-${i}'>"` +
+        //   `<span id='${divNumber}-${i}'>"` +
         //     words[i] +
         //     `"${i < words.length - 1 ? " " : ""}</span>`
         // );
@@ -41,20 +41,30 @@ export function textToSpans(text, words, d, nextStart) {
 }
 
 export function textToWords(text, preservesLinks = false) {
+    // get rid of html opening/closing tags
+    text = text.replaceAll(/<[^>]*>/g, " ")
+
+    // remove some special chars unless links are to be preserved
     if (!preservesLinks) {
         text = text.replaceAll(/[/:.?=&]/g, " ");
     }
 
-    text = text.replaceAll(/[)<\[>\]\\\n,;'"]/g, " ");
+    // remove some special chars
+    text = text.replaceAll(/[)<\[>\]\\\n,;'"]/g, " ")
+
+    // remove consecutive whitespace chars, replace all whitespace with spaces
     text = text.replaceAll(/\s+/g, " ");
 
+    // remove first char if space
     if (text[0] === " ") {
         text = text.slice(1);
     }
 
+    // remove last char if space
     if (text[text.length - 1] === " ") {
         text = text.slice(0, -1);
     }
 
+    // return anything left that isn't a space
     return text.split(" ");
 }

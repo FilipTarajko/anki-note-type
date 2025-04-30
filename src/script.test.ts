@@ -55,6 +55,10 @@ describe('textToWords', () => {
     it('works with ,:;.\'"', () => {
         expect(textToWords('test,a:e;g.b\'u"U')).toStrictEqual(['test', 'a', 'e', 'g', 'b', 'u', 'U']);
     })
+
+    it('handles <b> tags properly', () => {
+        expect(textToWords('<b>test</b>')).toStrictEqual(['test']);
+    })
 })
 
 describe('textToSpans', () => {
@@ -62,7 +66,21 @@ describe('textToSpans', () => {
         expect(textToSpans('test', ['test'], 0, 0)).toStrictEqual(["<span id=\'0-0\'>test</span>", 27]);
     })
 
+    it('respects divNumber', () => {
+        expect(textToSpans('test', ['test'], 1, 0)).toStrictEqual(["<span id=\'1-0\'>test</span>", 27]);
+    })
+
     it('transforms a string with multiple words into spans and knows where next replaceable stuff may begin', () => {
         expect(textToSpans('test a abc', ['test', 'a', 'abc'], 0, 0)).toStrictEqual(["<span id='0-0'>test</span> <span id='0-1'>a</span> <span id='0-2'>abc</span>", 77]);
+    })
+
+    it('handles <b> tags properly', () => {
+        const expectedResult = [
+            "<b><span id='0-0'>test</span></b>",
+            30, // todo: shouldn't it actually be higher?
+        ]
+
+        expect(textToSpans('<b>test</b>', textToWords('<b>test</b>'), 0, 0))
+            .toStrictEqual(expectedResult);
     })
 })
