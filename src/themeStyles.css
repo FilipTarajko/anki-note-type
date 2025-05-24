@@ -53,6 +53,36 @@
   background: hsl(205, 50%, 45%, 0.8);
 }
 
+/* der */
+
+#der .originalFrontVisible #frontbox {
+  background: hsl(0, 50%, 50%, 0.8);
+}
+
+#der .originalFrontVisible #backbox {
+  background: hsl(0, 50%, 45%, 0.8);
+}
+
+/* die */
+
+#die .originalFrontVisible #frontbox {
+  background: hsl(320, 50%, 50%, 0.8);
+}
+
+#die .originalFrontVisible #backbox {
+  background: hsl(320, 50%, 45%, 0.8);
+}
+
+/* das */
+
+#das .originalFrontVisible #frontbox {
+  background: hsl(125, 0%, 20%, 0.8);
+}
+
+#das .originalFrontVisible #backbox {
+  background: hsl(125, 0%, 15%, 0.8);
+}
+
 /* standard */
 
 
@@ -63,21 +93,21 @@
   --fg2: hsl(20, 100%, 45%, 0.6);
 }
 
-#swift, #ubuntu, #firefox {
+#swift, #ubuntu, #firefox, #git {
   --bg1: hsl(54, 45%, 55%);
   --bg2: hsl(14, 40%, 55%);
   --fg1: hsl(25, 90%, 55%, 0.8);
   --fg2: hsl(30, 90%, 55%, 0.8);
 }
 
-#nl, #de, #rde, #het, #rhet, #provincies, #blender, #html {
+#nl, #de, #rde, #het, #rhet, #provincies, #blender, #html, #rust {
   --bg1: hsl(50, 35%, 45%);
   --bg2: hsl(10, 30%, 40%);
   --fg1: hsl(34, 100%, 50%, 0.6);
   --fg2: hsl(34, 100%, 45%, 0.6);
 }
 
-#history {
+#history, #greek {
   --bg1: hsl(60, 25%, 40%);
   --bg2: hsl(80, 20%, 30%);
   --fg1: hsl(55, 100%, 40%, 0.6);
@@ -105,11 +135,18 @@
   --fg2: hsl(105, 80%, 40%, 0.6);
 }
 
-#vue, #nuxt {
+#vue, #nuxt, #vuex, #vueuse {
   --bg1: hsl(100, 20%, 40%);
   --bg2: hsl(140, 20%, 35%);
   --fg1: hsl(120, 70%, 30%, 0.6);
   --fg2: hsl(105, 60%, 30%, 0.6);
+}
+
+#pinia, #vitest {
+  --bg1: hsl(60, 45%, 40%);
+  --bg2: hsl(60, 40%, 35%);
+  --fg1: hsl(124, 100%, 40%, 0.6);
+  --fg2: hsl(114, 100%, 35%, 0.6);
 }
 
 #ai {
@@ -119,7 +156,7 @@
   --fg2: hsl(114, 100%, 35%, 0.6);
 }
 
-#iso3166, #geo, #emmet {
+#iso3166, #geo, #emmet, #vim {
   --bg1: hsl(120, 25%, 45%);
   --bg2: hsl(180, 20%, 40%);
   --fg1: rgba(0, 255, 0, 0.3);
@@ -140,84 +177,84 @@
   --fg2: hsl(195, 80%, 40%, 0.6);
 }
 
-#distributed, #paintnet, #economy, #docker, #vscode {
+#distributed, #paintnet, #economy, #docker, #vscode, #tailwind, #arch {
   --bg1: hsl(180, 35%, 40%);
   --bg2: hsl(220, 30%, 35%);
   --fg1: hsl(200, 100%, 45%, 0.6);
   --fg2: hsl(195, 100%, 45%, 0.6);
 }
 
-#anki {
+#anki, #random {
   --bg1: hsl(205, 15%, 55%);
   --bg2: hsl(205, 15%, 55%);
   --fg1: hsl(205, 50%, 45%);
   --fg2: hsl(205, 50%, 50%);
 }
 
-#embedded {
+#embedded, #google, #quasar, #processes, #frameworks, #interaction, #maths {
   --bg1: hsl(190, 35%, 40%);
   --bg2: hsl(230, 30%, 35%);
   --fg1: hsl(220, 100%, 45%, 0.5);
   --fg2: hsl(210, 100%, 40%, 0.5);
 }
 
-#cpp {
+#cpp, #ts {
   --bg1: hsl(200, 35%, 45%);
   --bg2: hsl(230, 40%, 45%);
   --fg1: hsl(220, 100%, 45%, 0.6);
   --fg2: hsl(210, 100%, 40%, 0.6);
 }
 
-#se {
+#se, #units {
   --bg1: hsl(200, 25%, 50%);
   --bg2: hsl(230, 40%, 45%);
   --fg1: hsl(220, 70%, 45%, 0.7);
   --fg2: hsl(215, 70%, 45%, 0.7);
 }
 
-#keyboard, #photography, #regex, #en {
+#keyboard, #photography, #regex, #en, #databases {
   --bg1: hsl(200, 35%, 35%);
   --bg2: hsl(240, 30%, 30%);
   --fg1: hsl(220, 100%, 40%, 0.6);
   --fg2: hsl(215, 100%, 40%, 0.6);
 }
 
-#cs {
+#cs, #cables, #java {
   --bg1: hsl(210, 25%, 40%);
   --bg2: hsl(230, 20%, 35%);
   --fg1: hsl(224, 100%, 50%, 0.6);
   --fg2: hsl(214, 100%, 45%, 0.6);
 }
 
-#astrophysics, #werkwoord {
+#astrophysics, #werkwoord, #graphics {
   --bg1: hsl(170, 55%, 45%);
   --bg2: hsl(250, 50%, 40%);
   --fg1: hsl(224, 90%, 40%, 0.55);
   --fg2: hsl(224, 80%, 45%, 0.55);
 }
 
-#nato, #linux {
+#nato, #linux, #markdown {
   --bg1: hsl(210, 45%, 35%);
   --bg2: hsl(250, 40%, 30%);
   --fg1: hsl(244, 90%, 40%, 0.55);
   --fg2: hsl(234, 70%, 35%, 0.55);
 }
 
-#php, #symfony, #phpstorm, #unicode {
+#php, #symfony, #phpstorm, #unicode, #css {
   --bg1: hsl(240, 25%, 45%);
   --bg2: hsl(280, 25%, 45%);
   --fg1: hsl(250, 60%, 45%, 0.6);
   --fg2: hsl(260, 60%, 45%, 0.6);
 }
 
-#elixir, #gamedev {
+#elixir, #gamedev{
   --bg1: hsl(290, 35%, 45%);
   --bg2: hsl(240, 30%, 40%);
   --fg1: hsl(260, 100%, 50%, 0.6);
   --fg2: hsl(260, 100%, 45%, 0.6);
 }
 
-#sass {
+#sass, #jp {
   --bg1: hsl(320, 35%, 45%);
   --bg2: hsl(270, 30%, 40%);
   --fg1: hsl(290, 100%, 50%, 0.6);
@@ -236,4 +273,11 @@
   --fg2: hsl(0, 70%, 45%);
   --bg1: hsl(0, 30%, 90%);
   --bg2: hsl(0, 50%, 70%);
+}
+
+#deu, #der, #die, #das {
+  --bg1: hsl(60, 35%, 45%);
+  --bg2: hsl(0, 30%, 40%);
+  --fg1: hsl(60, 100%, 50%, 0.6);
+  --fg2: hsl(60, 100%, 40%, 0.6);
 }
