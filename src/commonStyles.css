@@ -22,9 +22,14 @@ hr {
   color: white;
 }
 
+b {
+font-weight: bolder;
+}
+
 #frontbox {
   background: var(--fg1);
   color: white;
+  font-weight: bold;
   margin: 0 3rem 0 3rem;
   border-radius: 3rem;
   padding: 2.5rem;
