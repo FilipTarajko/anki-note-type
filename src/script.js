@@ -1,7 +1,7 @@
 /** todo: why is this in a block */
 {
   /** config for which themes to enable word-to-iframe links  */
-  const enablingThemes = ["de", "rde", "het", "rhet", "nl"];
+  const enablingThemes = ["de", "rde", "het", "rhet", "nl", "deu", "der", "die", "das"];
 
   /** config for which fields to replace into iframe links */
   const divsWithLinks = ["source"];
@@ -22,6 +22,10 @@
   let link2 = "#Dutch";
   let word = "";
   let fullscreen = false;
+
+  if (["deu", "der", "die", "das"].includes(themeName)) {
+    link2 = "#German";
+  }
 
   const enablingTheme = (element) => element === themeName;
   if (enablingThemes.some(enablingTheme)) {
