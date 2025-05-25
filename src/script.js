@@ -48,7 +48,7 @@
 
   buttonsDiv.insertAdjacentHTML(
     "beforeend",
-    `<button id="browser"><a href=${link1 + word.toLowerCase().replace(/[,\.!]/g, "") + link2}>browser</a></button>`
+    `<button id="browser"><a href=${link1 + word.replace(/[,\.!]/g, "") + link2}>browser</a></button>`
   );
 
   for (let b = 0; b < buttons.length; b++) {
@@ -59,8 +59,8 @@
     document.getElementById(`b${b}`).addEventListener("click", () => {
       link1 = buttons[b][1];
       link2 = buttons[b][2];
-      iframe.src = link1 + word.toLowerCase().replace(/[,\.!]/g, "") + link2;
-      document.getElementById("browser").innerHTML = `<a href=${link1 + word.toLowerCase().replace(/[,\.!]/g, "") + link2}>browser</a>`;
+      iframe.src = link1 + word.replace(/[,\.!]/g, "") + link2;
+      document.getElementById("browser").innerHTML = `<a href=${link1 + word.replace(/[,\.!]/g, "") + link2}>browser</a>`;
     });
   }
 
@@ -109,8 +109,8 @@
         iframe.style.visibility = "visible";
         if (d < divsToReplace.length) {
           word = words[i];
-          iframe.src = link1 + word.toLowerCase().replace(/[,\.!]/g, "") + link2;
-          document.getElementById("browser").innerHTML = `<a href=${link1 + word.toLowerCase().replace(/[,\.!]/g, "") + link2}>browser</a>`;
+          iframe.src = link1 + word.replace(/[,\.!]/g, "") + link2;
+          document.getElementById("browser").innerHTML = `<a href=${link1 + word.replace(/[,\.!]/g, "") + link2}>browser</a>`;
         } else {
           iframe.src = words[i].replace("youtube.com/watch?v=", "youtube.com/embed/");
           document.getElementById("browser").innerHTML = `<a href=${words[i]}>browser</a>`;
