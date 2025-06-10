@@ -53,33 +53,33 @@
   background: hsl(205, 50%, 45%, 0.8);
 }
 
-/* der */
+/* der, rder */
 
-#der .originalFrontVisible #frontbox {
+#der .originalFrontVisible #frontbox, #rder .originalBackVisible #backbox {
   background: hsl(0, 50%, 50%, 0.8);
 }
 
-#der .originalFrontVisible #backbox {
+#der .originalFrontVisible #backbox, #rder .originalBackVisible #frontbox {
   background: hsl(0, 50%, 45%, 0.8);
 }
 
-/* die */
+/* die, rdie */
 
-#die .originalFrontVisible #frontbox {
+#die .originalFrontVisible #frontbox, #rdie .originalBackVisible #backbox {
   background: hsl(320, 50%, 50%, 0.8);
 }
 
-#die .originalFrontVisible #backbox {
+#die .originalFrontVisible #backbox, #rdie .originalBackVisible #frontbox {
   background: hsl(320, 50%, 45%, 0.8);
 }
 
-/* das */
+/* das, rdas */
 
-#das .originalFrontVisible #frontbox {
+#das .originalFrontVisible #frontbox, #rdas .originalBackVisible #backbox {
   background: hsl(125, 0%, 20%, 0.8);
 }
 
-#das .originalFrontVisible #backbox {
+#das .originalFrontVisible #backbox, #rdas .originalBackVisible #frontbox {
   background: hsl(125, 0%, 15%, 0.8);
 }
 
@@ -275,7 +275,7 @@
   --bg2: hsl(0, 50%, 70%);
 }
 
-#deu, #der, #die, #das {
+#deu, #der, #die, #das, #rdie, #rdas, #rder {
   --bg1: hsl(60, 35%, 45%);
   --bg2: hsl(0, 30%, 40%);
   --fg1: hsl(60, 100%, 50%, 0.6);
