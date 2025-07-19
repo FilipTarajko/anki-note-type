@@ -247,7 +247,7 @@
   --fg2: hsl(260, 60%, 45%, 0.6);
 }
 
-#elixir, #gamedev{
+#elixir, #gamedev, #csharp {
   --bg1: hsl(290, 35%, 45%);
   --bg2: hsl(240, 30%, 40%);
   --fg1: hsl(260, 100%, 50%, 0.6);
@@ -268,7 +268,7 @@
   --bg2: hsl(0, 80%, 40%);
 }
 
-#pl, #vivaldi, #angular {
+#pl, #vivaldi, #angular, #finals {
   --fg1: hsl(0, 60%, 55%);
   --fg2: hsl(0, 70%, 45%);
   --bg1: hsl(0, 30%, 90%);
