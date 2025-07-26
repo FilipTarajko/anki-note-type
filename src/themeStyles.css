@@ -55,31 +55,31 @@
 
 /* der, rder */
 
-#der .originalFrontVisible #frontbox, #rder .originalBackVisible #backbox {
+#der .originalFrontVisible #frontbox, #rder .originalBackVisible #frontbox {
   background: hsl(0, 50%, 50%, 0.8);
 }
 
-#der .originalFrontVisible #backbox, #rder .originalBackVisible #frontbox {
+#der .originalFrontVisible #backbox, #rder .originalBackVisible #backbox {
   background: hsl(0, 50%, 45%, 0.8);
 }
 
 /* die, rdie */
 
-#die .originalFrontVisible #frontbox, #rdie .originalBackVisible #backbox {
+#die .originalFrontVisible #frontbox, #rdie .originalBackVisible #frontbox {
   background: hsl(320, 50%, 50%, 0.8);
 }
 
-#die .originalFrontVisible #backbox, #rdie .originalBackVisible #frontbox {
+#die .originalFrontVisible #backbox, #rdie .originalBackVisible #backbox {
   background: hsl(320, 50%, 45%, 0.8);
 }
 
 /* das, rdas */
 
-#das .originalFrontVisible #frontbox, #rdas .originalBackVisible #backbox {
+#das .originalFrontVisible #frontbox, #rdas .originalBackVisible #frontbox {
   background: hsl(125, 0%, 20%, 0.8);
 }
 
-#das .originalFrontVisible #backbox, #rdas .originalBackVisible #frontbox {
+#das .originalFrontVisible #backbox, #rdas .originalBackVisible #backbox {
   background: hsl(125, 0%, 15%, 0.8);
 }
 
