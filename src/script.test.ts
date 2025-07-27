@@ -67,6 +67,10 @@ describe('textToWords', () => {
     it('handles german letters properly', () => {
         expect(textToWords('der Bruder (die Brüder) üÄÜäëËß')).toStrictEqual(['der', 'Bruder', 'die', 'Brüder', 'üÄÜäëËß']);
     })
+
+    it('handles commas after {{sth}} (cloze) correctly', () => {
+        expect(textToWords('{{sth}}, b')).toStrictEqual(['{{sth}}', 'b']);
+    })
 })
 
 describe('textToSpans', () => {
@@ -94,6 +98,10 @@ describe('textToSpans', () => {
 
     it('handles german letters properly', () => {
         expect(textToSpans('der Bruder (die Brüder) üÄÜäëËß', ['der', 'Bruder', 'die', 'Brüder', 'üÄÜäëËß'], 0, 0)[0]).toStrictEqual("<span id='0-0'>der</span> <span id='0-1'>Bruder</span> (<span id='0-2'>die</span> <span id='0-3'>Brüder</span>) <span id='0-4'>üÄÜäëËß</span>");
+    })
+
+    it('handles commas after {{sth}} (cloze) correctly', () => {
+        expect(textToSpans('{{sth}}, b', 0, 0)[0]).toStrictEqual('{{sth}}, b');
     })
 
     // TODO: textToSpans doesn't support tags inside of words, eg tes<b>t</b> won't work
