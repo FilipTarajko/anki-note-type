@@ -16,6 +16,10 @@
   overflow: hidden;
 }
 
+pre {
+  font-family: 'DejaVu Sans Mono', 'Roboto Mono', consolas, monospace;
+}
+
 hr {
   width: 20%;
   margin: 2px 40%;
