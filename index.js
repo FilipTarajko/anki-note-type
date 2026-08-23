@@ -4,7 +4,7 @@ const inputDirectory = "./src/";
 const outputDirectory = './dist/';
 
 const commonStylesFile = inputDirectory+"commonStyles.css";
-const themeStylesFile = inputDirectory+"themeStyles.css";
+const themeStylesFile = "themeStyles.css";
 const scriptFile = inputDirectory+"script.js";
 const helpersFile = inputDirectory+"helpers.js";
 

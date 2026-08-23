@@ -268,7 +268,7 @@
   --bg2: hsl(0, 80%, 40%);
 }
 
-#pl, #vivaldi, #angular, #finals {
+#pl, #vivaldi, #angular {
   --fg1: hsl(0, 60%, 55%);
   --fg2: hsl(0, 70%, 45%);
   --bg1: hsl(0, 30%, 90%);
