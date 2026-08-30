@@ -1,5 +1,5 @@
-import {expect, describe, it} from 'vitest';
-import {textToSpans, textToWords} from './helpers';
+import { expect, describe, it } from 'vitest';
+import { textToSpans, textToWords } from './helpers';
 
 describe('textToWords', () => {
     it('transforms word into 1-elem array', () => {
@@ -87,13 +87,11 @@ describe('textToSpans', () => {
     })
 
     it('handles <b> tags properly', () => {
-        const expectedResult = [
-            "<b><span id='0-0'>test</span></b>",
-            30, // todo: shouldn't it actually be higher?
-        ]
-
         expect(textToSpans('<b>test</b>', textToWords('<b>test</b>'), 0, 0))
-            .toStrictEqual(expectedResult);
+            .toStrictEqual([
+                "<span id='0-0'><b>test</b></span>",
+                34, // todo: shouldn't it actually be higher?
+            ]);
     })
 
     it('handles german letters properly', () => {
@@ -105,4 +103,39 @@ describe('textToSpans', () => {
     })
 
     // TODO: textToSpans doesn't support tags inside of words, eg tes<b>t</b> won't work
+
+    it('handles tags inside of words', () => {
+        expect(
+            textToSpans('<u>A</u>lgemene <u>I</u>nlichtingen- en <u>V</u>eiligheids<u>d</u>ienst',
+                textToWords('<u>A</u>lgemene <u>I</u>nlichtingen- en <u>V</u>eiligheids<u>d</u>ienst'),
+                0,
+                0
+            )).toStrictEqual([
+                "<span id='0-0'><u>A</u>lgemene</span> <span id='0-1'><u>I</u>nlichtingen-</span> <span id='0-2'>en</span> <span id='0-3'><u>V</u>eiligheids<u>d</u>ienst</span>",
+                160,
+            ]);
+    })
+
+    it('handles tag containing last letter of the last word', () => {
+        expect(
+            textToSpans('<u>c</u>yan <u>m</u>agenta <u>y</u>ellow blac<u>k</u>',
+                textToWords('<u>c</u>yan <u>m</u>agenta <u>y</u>ellow blac<u>k</u>'),
+                0,
+                0,
+            ),
+        ).toStrictEqual([
+            "<span id='0-0'><u>c</u>yan</span> <span id='0-1'><u>m</u>agenta</span> <span id='0-2'><u>y</u>ellow</span> <span id='0-3'>blac<u>k</u></span>",
+            142
+        ]);
+    })
+
+    it('handles nested tags', () => {
+        expect(
+            textToSpans('<b><u>test</u></b>',
+                textToWords('<b><u>test</u></b>'),
+                0,
+                0,
+            )
+        )
+    })
 })
