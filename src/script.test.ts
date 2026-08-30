@@ -1,5 +1,5 @@
 import { expect, describe, it } from 'vitest';
-import { textToSpans, textToWords } from './helpers';
+import { textToSpans, textToWords, cleanWordForLink } from './helpers';
 
 describe('textToWords', () => {
     it('transforms word into 1-elem array', () => {
@@ -137,5 +137,23 @@ describe('textToSpans', () => {
                 0,
             )
         )
+    })
+})
+
+describe('cleanWordForLink', () => {
+    it('returns simple words as-is', () => {
+        expect(cleanWordForLink('abc')).toBe('abc');
+    })
+
+    it('removes commas, dots, exclamation marks', () => {
+        expect(cleanWordForLink(',.!a,.!c,.!e,.!')).toBe('ace');
+    })
+
+    it('removes hyphen at the end', () => {
+        expect(cleanWordForLink('inlichtingen-')).toBe('inlichtingen');
+    })
+
+    it('preserves hyphen inside the end', () => {
+        expect(cleanWordForLink('aan-uitknop')).toBe('aan-uitknop');
     })
 })

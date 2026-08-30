@@ -173,3 +173,7 @@ export function textToWords(text, preservesLinks = false) {
     // return anything left that isn't a space
     return text.split(" ");
 }
+
+export function cleanWordForLink(word) {
+    return word.replace(/[,\.!]/g, "").replace(/-$/, "");
+}
