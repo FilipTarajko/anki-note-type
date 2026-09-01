@@ -130,14 +130,41 @@ describe('textToSpans', () => {
     })
 
     it('handles nested tags', () => {
-        expect(
-            textToSpans('<b><u>test</u></b>',
-                textToWords('<b><u>test</u></b>'),
-                0,
-                0,
-            )
-        )
+        expect(textToSpans("<b><u>test</u></b>", textToWords("<b><u>test</u></b>"), 0, 0)).toStrictEqual([
+          "<span id='0-0'><b><u>test</u></b></span>",
+          41,
+        ]);
     })
+
+    it("handles long text", () => {
+      expect(
+        textToSpans(
+          "<b><u>test</u></b> handles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tags",
+          textToWords(
+            "<b><u>test</u></b> handles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tagshandles nested tags",
+          ),
+          0,
+          0,
+        ),
+      ).toStrictEqual([
+        "<span id='0-0'><b><u>test</u></b></span> <span id='0-1'>handles</span> <span id='0-2'>nested</span> <span id='0-3'>tagshandles</span> <span id='0-4'>nested</span> <span id='0-5'>tagshandles</span> <span id='0-6'>nested</span> <span id='0-7'>tagshandles</span> <span id='0-8'>nested</span> <span id='0-9'>tagshandles</span> <span id='0-10'>nested</span> <span id='0-11'>tagshandles</span> <span id='0-12'>nested</span> <span id='0-13'>tagshandles</span> <span id='0-14'>nested</span> <span id='0-15'>tagshandles</span> <span id='0-16'>nested</span> <span id='0-17'>tagshandles</span> <span id='0-18'>nested</span> <span id='0-19'>tagshandles</span> <span id='0-20'>nested</span> <span id='0-21'>tagshandles</span> <span id='0-22'>nested</span> <span id='0-23'>tagshandles</span> <span id='0-24'>nested</span> <span id='0-25'>tagshandles</span> <span id='0-26'>nested</span> <span id='0-27'>tagshandles</span> <span id='0-28'>nested</span> <span id='0-29'>tagshandles</span> <span id='0-30'>nested</span> <span id='0-31'>tagshandles</span> <span id='0-32'>nested</span> <span id='0-33'>tagshandles</span> <span id='0-34'>nested</span> <span id='0-35'>tagshandles</span> <span id='0-36'>nested</span> <span id='0-37'>tagshandles</span> <span id='0-38'>nested</span> <span id='0-39'>tagshandles</span> <span id='0-40'>nested</span> <span id='0-41'>tagshandles</span> <span id='0-42'>nested</span> <span id='0-43'>tagshandles</span> <span id='0-44'>nested</span> <span id='0-45'>tagshandles</span> <span id='0-46'>nested</span> <span id='0-47'>tagshandles</span> <span id='0-48'>nested</span> <span id='0-49'>tagshandles</span> <span id='0-50'>nested</span> <span id='0-51'>tagshandles</span> <span id='0-52'>nested</span> <span id='0-53'>tagshandles</span> <span id='0-54'>nested</span> <span id='0-55'>tagshandles</span> <span id='0-56'>nested</span> <span id='0-57'>tags</span>",
+        1876,
+      ]);
+    });
+
+    it("handles text with tags between &lt; and &gt;", ()=>{
+        expect(
+          textToSpans(
+            "AIVD...<br>type P = ReturnType&lt;<u>typeof</u>&nbsp;f&gt;",
+            textToWords("AIVD...<br>type P = ReturnType&lt;<u>typeof</u>&nbsp;f&gt;"),
+            0,
+            0,
+          ),
+        ).toStrictEqual([
+          "<span id='0-0'>AIVD</span>...<br><span id='0-1'>type</span> <span id='0-2'>P</span> = <span id='0-3'>ReturnType</span>&lt;<span id='0-4'><u>typeof</u></span>&nbsp;<span id='0-5'>f</span>&gt;",
+          187,
+        ]);
+    });
 })
 
 describe('cleanWordForLink', () => {

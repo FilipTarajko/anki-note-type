@@ -129,49 +129,75 @@ export function textToSpans(text, words, divNumber, nextStart) {
 }
 
 export function textToWords(text, preservesLinks = false) {
-    // get rid of html tag openings/closings
-    text = text.replaceAll(/<[^>]*>/g, "")
+  const stripChars = new Set([
+    "(",
+    ")",
+    "<",
+    "[",
+    ">",
+    "]",
+    ",",
+    ";",
+    "'",
+    '"',
+    "\\",
+    "\n",
+    ...(preservesLinks ? [] : ["/", ":", ".", "?", "=", "&"]),
+  ]);
 
-    // remove some special chars unless links are to be preserved
-    if (!preservesLinks) {
-        // regex solution caused issues on AnkiDroid, so multiple replaceAll calls are used instead
-        text = text.replaceAll("/", " ")
-            .replaceAll(":", " ")
-            .replaceAll(".", " ")
-            .replaceAll("?", " ")
-            .replaceAll("=", " ")
-            .replaceAll("&", " ");
+  // Matches a full HTML entity anchored at the current position:
+  // named (&amp;), decimal (&#123;), or hex (&#x1F600;).
+  // Sticky flag ('y') means it only matches starting exactly at lastIndex,
+  // so we can cheaply test "is there an entity right here?" without
+  // scanning the whole remaining string.
+  const entityPattern = /&(#\d+|#x[0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]{1,31});/y;
+
+  const words = [];
+  let current = "";
+  let i = 0;
+
+  const pushCurrent = () => {
+    if (current) {
+      words.push(current);
+      current = "";
+    }
+  };
+
+  while (i < text.length) {
+    const ch = text[i];
+
+    if (ch === "<") {
+      const close = text.indexOf(">", i);
+      if (close !== -1) {
+        // real tag — removed silently, doesn't split a word
+        i = close + 1;
+        continue;
+      }
     }
 
-    // regex solution caused issues on AnkiDroid, so multiple replaceAll calls are used instead
-    text = text.replaceAll("(", " ")
-        .replaceAll(")", " ")
-        .replaceAll("<", " ")
-        .replaceAll("[", " ")
-        .replaceAll(">", " ")
-        .replaceAll("]", " ")
-        .replaceAll(",", " ")
-        .replaceAll(";", " ")
-        .replaceAll("'", " ")
-        .replaceAll('"', " ")
-        .replaceAll("\\", " ")
-        .replaceAll("\n", " ");
-
-    // remove consecutive whitespace chars, replace all whitespace with spaces
-    text = text.replaceAll(/\s+/g, " ");
-
-    // remove first char if space
-    if (text[0] === " ") {
-        text = text.slice(1);
+    if (ch === "&") {
+      entityPattern.lastIndex = i;
+      const match = entityPattern.exec(text);
+      if (match) {
+        // whole entity treated as a separator, like a stripped char —
+        // avoids fragmenting it into "lt"/"gt"/"nbsp" etc.
+        pushCurrent();
+        i += match[0].length;
+        continue;
+      }
+      // not a real entity (stray '&') — falls through to normal handling below
     }
 
-    // remove last char if space
-    if (text[text.length - 1] === " ") {
-        text = text.slice(0, -1);
+    if (stripChars.has(ch) || /\s/.test(ch)) {
+      pushCurrent();
+    } else {
+      current += ch;
     }
+    i++;
+  }
+  pushCurrent();
 
-    // return anything left that isn't a space
-    return text.split(" ");
+  return words;
 }
 
 export function cleanWordForLink(word) {

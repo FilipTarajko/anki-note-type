@@ -117,7 +117,7 @@
     if (!textElement) {
       continue;
     }
-    let text = textElement.innerText;
+    let text = textElement.innerHTML;
 
     let words = textToWords(text, divsWithLinks.includes(divsConcat[d]));
 
