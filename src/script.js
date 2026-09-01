@@ -1,8 +1,5 @@
 /** todo: why is this in a block */
 {
-  /** config for which themes to enable word-to-iframe links  */
-  const enablingThemes = ["de", "rde", "het", "rhet", "nl", "deu", "der", "die", "das"];
-
   /** config for which fields to replace into iframe links */
   const divsWithLinks = ["source"];
   const divsToReplaceAll = ["frontbox", "backbox", "header", "info"];
@@ -19,7 +16,7 @@
   const themeName = document.getElementById("Theme").innerText;
 
   let link1 = "https://en.m.wiktionary.org/wiki/";
-  let link2 = "#Dutch";
+  let link2 = "#English";
   let word = "";
   let fullscreen = false;
 
@@ -27,10 +24,11 @@
     link2 = "#German";
   }
 
-  const enablingTheme = (element) => element === themeName;
-  if (enablingThemes.some(enablingTheme)) {
-    divsToReplace = divsToReplaceAll;
+  if (["de", "rde", "het", "rhet", "nl"].includes(themeName)) {
+    link2 = "#Dutch";
   }
+
+  divsToReplace = divsToReplaceAll;
 
   document.getElementsByClassName("card")[0].id = themeName;
 
@@ -40,27 +38,52 @@
    * format: [buttonLabel, urlPartBeforeWord, urlPartAfterWord, buttonHue]
    * */
   let buttons = [
-    ["Wiktionary", "https://en.m.wiktionary.org/wiki/", "#Dutch", 155],
-    ["Reverso", "https://context.reverso.net/translation/dutch-english/", "", 17],
-    ["HowToPronounce", "https://www.howtopronounce.com/dutch/", "", 140],
-    ["Bing", "https://www.bing.com/search?q=", "", 210],
+    ["Wiktionary", "https://en.m.wiktionary.org/wiki/", link2, 60],
+    ["↓", "https://en.m.wiktionary.org/wiki/", link2, 60],
+    ...(link2 === '#Dutch' ? [
+      ["boek", 'https://nl.wiktionary.org/wiki/', '#Nederlands', 36],
+      ["↓", 'https://nl.wiktionary.org/wiki/', '#Nederlands', 36],
+      ["HTP", "https://www.howtopronounce.com/dutch/", "", 140],
+    ] : []),
+    ...(link2 === '#German' ? [
+      ["Buch", 'https://de.wiktionary.org/wiki/der', '#Deutsch', 0],
+      ["↓", 'https://de.wiktionary.org/wiki/der', '#Deutsch', 0],
+      ["HTP", "https://www.howtopronounce.com/german/", "", 140],
+    ] : []),
+    ...(link2 === '#English' ? [
+      ["HTP", "https://www.howtopronounce.com/english/", "", 140],
+    ] : []),
+    ["Bing", "https://www.bing.com/search?q=", "", 19],
+    ["Wiki", "https://en.wikipedia.org/wiki/", "", 200],
+    ["↓", "https://en.wikipedia.org/wiki/", "", 200],
   ];
 
   buttonsDiv.insertAdjacentHTML(
     "beforeend",
-    `<button id="browser"><a href=${link1 + word.replace(/[,\.!]/g, "") + link2}>browser</a></button>`
+    `<button id="browser"><a href="${link1 + cleanWordForLink(word) + link2}">browser</a></button>`
   );
 
   for (let b = 0; b < buttons.length; b++) {
+    let classRegardingArrow = "";
+    if (buttons[b][0] === '↓') {
+      classRegardingArrow = "arrowButton";
+    } else if (buttons[b+1] && buttons[b+1][0] === '↓') {
+      classRegardingArrow = "beforeArrowButton"
+    }
+
     buttonsDiv.insertAdjacentHTML(
       "beforeend",
-      `<button id=b${b} style="background-color: hsl(${buttons[b][3]}, 100%, 80%);">${buttons[b][0]}</button>`
+      `<button id=b${b} class="${classRegardingArrow}" style="background-color: hsl(${buttons[b][3]}, 100%, 80%);">${buttons[b][0]}</button>`
     );
     document.getElementById(`b${b}`).addEventListener("click", () => {
       link1 = buttons[b][1];
       link2 = buttons[b][2];
-      iframe.src = link1 + word.replace(/[,\.!]/g, "") + link2;
-      document.getElementById("browser").innerHTML = `<a href=${link1 + word.replace(/[,\.!]/g, "") + link2}>browser</a>`;
+      if (buttons[b][0] === '↓') {
+        iframe.src = link1 + cleanWordForLink(word).toLowerCase() + link2;
+      } else {
+        iframe.src = link1 + cleanWordForLink(word) + link2;
+      }
+      document.getElementById("browser").innerHTML = `<a href="${iframe.src}">browser</a>`;
     });
   }
 
@@ -109,11 +132,11 @@
         iframe.style.visibility = "visible";
         if (d < divsToReplace.length) {
           word = words[i];
-          iframe.src = link1 + word.replace(/[,\.!]/g, "") + link2;
-          document.getElementById("browser").innerHTML = `<a href=${link1 + word.replace(/[,\.!]/g, "") + link2}>browser</a>`;
+          iframe.src = link1 + cleanWordForLink(word) + link2;
+          document.getElementById("browser").innerHTML = `<a href="${iframe.src}">browser</a>`;
         } else {
           iframe.src = words[i].replace("youtube.com/watch?v=", "youtube.com/embed/");
-          document.getElementById("browser").innerHTML = `<a href=${words[i]}>browser</a>`;
+          document.getElementById("browser").innerHTML = `<a href="${words[i]}">browser</a>`;
         }
         iframe.style.height = parseInt(vh100) - 40 - parseInt(document.getElementById("nonIframe").clientHeight) + "px";
       });
